@@ -1,0 +1,44 @@
+/* Estilos para o painel administrativo */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2; /* Cor de fundo suave */
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px; /* Adicionando um espaço no topo */
+  color: #333; /* Cor do título */
+}
+
+#credentials-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto; /* Centralizando a lista */
+  max-width: 400px; /* Limitando a largura para evitar esticamento */
+}
+
+#credentials-list li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff; /* Fundo branco para cada item */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#logout-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transição suave de cor ao passar o mouse */
+}
+
+#logout-button:hover {
+  background-color: #444;
+}

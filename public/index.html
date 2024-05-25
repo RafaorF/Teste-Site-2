@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="R.ico" type="image/x-icon">
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Faça login</h2>
+    <form id="login-form">
+      <div class="input-group">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Entrar</button>
+    </form>
+    <div id="error-message" style="color: red; display: none;">Usuário ou senha incorretos. Por favor, tente novamente.</div>
+  </div>
+
+  <div class="theme-buttons">
+    <button id="theme-toggle-sun"><img src="sun.png" alt="Modo Claro"></button>
+    <button id="theme-toggle-moon"><img src="moon.png" alt="Modo Escuro"></button>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

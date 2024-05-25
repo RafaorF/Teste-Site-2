@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Organizador</title>
+  <link rel="stylesheet" href="site.css">
+  <link rel="icon" href="R.ico" type="image/x-icon">
+</head>
+<body>
+
+  <header>
+    <h1>Meu Organizador</h1>
+  </header>
+
+  <main>
+    <div class="flex-container">
+      <section id="anotacoes">
+        <h2>Anotações</h2>
+        <textarea id="anotacoes-textarea" placeholder="Faça suas anotações aqui..."></textarea>
+      </section>
+
+      <section id="lista-compras">
+        <h2>Listas de Compras</h2>
+        <form id="add-item-form">
+          <input type="text" id="item-input" placeholder="Digite um item..." required>
+          <button type="submit" class="impressao-hide">Adicionar Item</button>
+        </form>
+        <ul id="lista-itens"></ul>
+      </section>
+
+      <section id="compromissos">
+        <h2>Gerenciamento de Compromissos</h2>
+        <input type="datetime-local" id="compromisso-input">
+        <button onclick="adicionarCompromisso()">Adicionar Compromisso</button>
+        <ul id="lista-compromissos"></ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- Botão de imprimir com emoji de impressora -->
+  <button onclick="openModal()" class="botao-imprimir">🖨️</button>
+  <button class="botao-logout" onclick="logout()">🚪</button>
+
+  <!-- Modal de seleção de impressão -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Escolha o que deseja imprimir:</h2>
+      <ul>
+        <li onclick="printSection('anotacoes')">Anotações</li>
+        <li onclick="printSection('lista-compras')">Lista de Compras</li>
+        <li onclick="printSection('compromissos')">Gerenciamento de Compromissos</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="site.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/* Estilos para a tema claro */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+.theme-buttons {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+
+.theme-buttons button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.theme-buttons img {
+  width: 30px;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  --led-color: #00f; /* Cor padrão */
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  border: 2px solid #00f;
+  border-radius: 7px;
+  animation: glow 2s infinite alternate;
+  z-index: -1; /* Ajuste z-index para permitir interação com elementos de entrada */
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #00f, 0 0 10px #0af, 0 0 15px #0ff;
+  }
+  to {
+    box-shadow: 0 0 10px #00f, 0 0 15px #0af, 0 0 20px #0ff;
+  }
+}
+
+h2 {
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+/* Estilos para o tema escuro */
+.dark-theme {
+  background-color: #333; /* fundo escuro */
+  color: #fff; /* texto claro */
+}
+
+.dark-theme .login-container,
+.dark-theme .input-group,
+.dark-theme input[type="text"],
+.dark-theme input[type="password"],
+.dark-theme button {
+  background-color: #444; /* fundo do formulário, campos de entrada e botão no tema escuro */
+  color: #fff; /* texto claro */
+}
+
+.login-container.dark-theme::before {
+  border-color: var(--led-color); /* Use a cor da variável --led-color */
+}

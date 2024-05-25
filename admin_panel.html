@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo</title>
+  <link rel="stylesheet" href="admin_panel.css">
+  <link rel="icon" href="R.ico" type="image/x-icon">
+</head>
+<body>
+  <h1>Painel Administrativo</h1>
+
+  <ul id="credentials-list">
+    <!-- Aqui será exibida a lista de credenciais -->
+  </ul>
+
+  <!-- Botão de logout -->
+  <button id="logout-button">Logout</button>
+
+  <script>
+    // Array de credenciais
+    const credentials = [
+      { username: 'rafa', password: 'rafa' },
+      { username: 'mae', password: 'mae' },
+      { username: 'pai', password: 'pai' },
+      { username: 'sara', password: 'sara' },
+      // Adicione mais credenciais conforme necessário
+    ];
+
+    // Função para exibir as credenciais na lista
+    function displayCredentials() {
+      const credentialsList = document.getElementById('credentials-list');
+      credentials.forEach(credential => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `Usuário: ${credential.username}, Senha: ${credential.password}`;
+        credentialsList.appendChild(listItem);
+      });
+    }
+
+    // Chama a função para exibir as credenciais quando a página é carregada
+    window.onload = displayCredentials;
+  </script>
+
+  <script src="admin_panel.js"></script>
+</body>
+</html>
