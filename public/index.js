@@ -1,40 +1,34 @@
-document.getElementById('add-item-form').addEventListener('submit', function(e) {
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('login-form');
+    const errorMessage = document.getElementById('error-message');
+    const sunButton = document.getElementById('theme-toggle-sun');
+    const moonButton = document.getElementById('theme-toggle-moon');
   
-  const itemInput = document.getElementById('item');
-  const item = itemInput.value;
-
-  fetch('/add-item', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ item: item })
-  })
-  .then(response => response.json())
-  .then(data => {
-    addItemToDOM(data.item, data.id);
-    itemInput.value = '';
-  })
-  .catch(error => console.error('Error:', error));
-});
-
-function addItemToDOM(item, id) {
-  const listItem = document.createElement('li');
-  listItem.textContent = item;
-  document.getElementById('shopping-list').appendChild(listItem);
-}
-
-function loadItems() {
-  fetch('/items')
-  .then(response => response.json())
-  .then(items => {
-    items.forEach(item => {
-      addItemToDOM(item.item, item.id);
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = this.username.value;
+      const password = this.password.value;
+      
+      // Verificação das credenciais
+      if (username === 'admin' && password === 'admin') {
+        window.location.href = 'admin_panel.html'; // Redirecionamento para admin_panel.html
+      } else if ((username === 'rafa' && password === 'rafa') ||
+                 (username === 'pai' && password === 'pai') ||
+                 (username === 'mae' && password === 'mae') ||
+                 (username === 'sara' && password === 'sara')) {
+        window.location.href = 'site.html'; // Redirecionamento para index.html
+      } else {
+        errorMessage.style.display = 'block'; // Exibe mensagem de erro
+      }
     });
-  })
-  .catch(error => console.error('Error:', error));
-}
-
-// Carregar itens ao iniciar a página
-document.addEventListener('DOMContentLoaded', loadItems);
+  
+    sunButton.addEventListener('click', () => {
+      document.body.classList.remove('dark-theme');
+      sunButton.querySelector('img').src = 'sun.png';
+    });
+  
+    moonButton.addEventListener('click', () => {
+      document.body.classList.add('dark-theme');
+      sunButton.querySelector('img').src = 'moon.png';
+    });
+  });
